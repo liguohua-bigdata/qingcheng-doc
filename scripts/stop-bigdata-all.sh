@@ -1,0 +1,51 @@
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "$ZEPPELIN_HOME/bin/zeppelin-daemon.sh stop"
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${FLINK_HOME}/bin/stop-cluster.sh"
+ssh root@qingcheng11 "${FLINK_HOME}/bin/webclient.sh stop"
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${SPARK_HOME}/sbin/stop-all.sh"
+echo "-----------------qingcheng12-----------------"
+ssh root@qingcheng12 "${SPARK_HOME}/sbin/stop-master.sh"
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${KAFKA_HOME}/bin/kafka-server-stop.sh"
+echo "-----------------qingcheng12-----------------"
+ssh root@qingcheng12 "${KAFKA_HOME}/bin/kafka-server-stop.sh"
+echo "-----------------qingcheng13-----------------"
+ssh root@qingcheng13 "${KAFKA_HOME}/bin/kafka-server-stop.sh"
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${ALLUXIO_HOME}/bin/alluxio-stop.sh all "
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${HADOOP_HOME}/sbin/stop-yarn.sh"
+echo "-----------------qingcheng12-----------------"
+ssh root@qingcheng12 "${HADOOP_HOME}/sbin/hadoop-daemon.sh stop resourcemanager"
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${HADOOP_HOME}/sbin/mr-jobhistory-daemon.sh   stop historyserver"
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${HADOOP_HOME}/sbin/stop-dfs.sh"
+ssh root@qingcheng11 "${HADOOP_HOME}/sbin/hadoop-daemon.sh stop zkfc"
+ssh root@qingcheng11 "${HADOOP_HOME}/sbin/hadoop-daemon.sh  stop  namenodeh"
+echo "-----------------qingcheng12-----------------"
+ssh root@qingcheng12 "${HADOOP_HOME}/sbin/hadoop-daemon.sh stop zkfc"
+ssh root@qingcheng12 "${HADOOP_HOME}/sbin/hadoop-daemon.sh   stop  namenodeh"
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "${ZOOKEEPER_HOME}/bin/zkServer.sh stop"
+echo "-----------------qingcheng12-----------------"
+ssh root@qingcheng12 "${ZOOKEEPER_HOME}/bin/zkServer.sh stop"
+echo "-----------------qingcheng13-----------------"
+ssh root@qingcheng13 "${ZOOKEEPER_HOME}/bin/zkServer.sh stop"
+
+echo "-----------------qingcheng11-----------------"
+ssh root@qingcheng11 "jps"
+echo "-----------------qingcheng12-----------------"
+ssh root@qingcheng12 "jps"
+echo "-----------------qingcheng13-----------------"
+ssh root@qingcheng13 "jps"
