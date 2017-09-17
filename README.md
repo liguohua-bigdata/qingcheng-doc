@@ -9,6 +9,7 @@
 * [5：网盘效果](doc/wangpan/wangpan.md)
 * [6：Java程序](book/install/install.md)
 * [7：roadmap](doc/roadmap.md)
+* [7：docker私有仓库](doc/ext/docker-repo.md)
 ```
 打包命令：
 
