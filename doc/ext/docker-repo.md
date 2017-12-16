@@ -59,3 +59,7 @@
     3.解决方法
         server端使用http协议
         client端使用http协议
+        
+        
+        
+        
